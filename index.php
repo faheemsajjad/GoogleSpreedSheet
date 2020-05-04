@@ -26,7 +26,7 @@
         spreadsheetId: '1WzoeNWDBkIVLW07IPX54GVBONGebdB64U2Ih2kU1_bc',  // TODO: Update placeholder value.
 
         // The A1 notation of the values to retrieve.
-        range: 'Sheet1',  // TODO: Update placeholder value.
+        ranges: ['Sheet1','Sheet2'],  // TODO: Update placeholder value.
 
         // How values should be represented in the output.
         // The default render option is ValueRenderOption.FORMATTED_VALUE.
@@ -39,9 +39,17 @@
         // dateTimeRenderOption: '',  // TODO: Update placeholder value.
       };
 
-      var request = gapi.client.sheets.spreadsheets.values.get(params);
+      var request = gapi.client.sheets.spreadsheets.values.batchGet(params); //gapi.client.sheets.spreadsheets.values.get(params);
       request.then(function(response) {
         // TODO: Change code below to process the `response` object:
+        console.log("response.result");
+        console.log("response.result");
+        console.log("response.result");
+        console.log("response.result");
+        console.log("response.result");
+        console.log(response);
+
+        return false;
         var result = response.result['values'];
         result.splice(0,1);
         var table = $('#example').DataTable( {
